@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Lyudmyla26-goit-react-hw-07-phonebook%20/static/css/main.98ec47ca.css",
+    "main.js": "/Lyudmyla26-goit-react-hw-07-phonebook%20/static/js/main.5cb70d41.js",
+    "index.html": "/Lyudmyla26-goit-react-hw-07-phonebook%20/index.html",
+    "main.98ec47ca.css.map": "/Lyudmyla26-goit-react-hw-07-phonebook%20/static/css/main.98ec47ca.css.map",
+    "main.5cb70d41.js.map": "/Lyudmyla26-goit-react-hw-07-phonebook%20/static/js/main.5cb70d41.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.98ec47ca.css",
+    "static/js/main.5cb70d41.js"
+  ]
+}
