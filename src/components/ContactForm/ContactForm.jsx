@@ -39,17 +39,18 @@ const schema = yup.object().shape({
     .required(),
 });
 
-const initialValues = { name: '', number: '' };
+const initialValues = { name: '', number: '', id: '' };
 
 export const ContactForm = () => {
   const contacts = useSelector(selectContacts);
+
   const dispatch = useDispatch();
 
   const isDublicate = ({ name, number }) => {
     const normalizedName = name.toLowerCase().trim();
     const normalizedNumber = number.trim();
 
-    const dublicate = contacts.find(
+    const dublicate = contacts.items.find(
       contact =>
         contact.name.toLowerCase().trim() === normalizedName ||
         contact.number.trim() === normalizedNumber
@@ -71,9 +72,9 @@ export const ContactForm = () => {
         toastId: 'custom-id-yes',
       });
     }
-    dispatch(addContact({ id: nanoid(), name, number }));
-    // const action = addContact({ name, number });
-    // dispatch(action);
+    // dispatch(addContact({ id: nanoid(), name, number }));
+    const action = addContact({ id: nanoid(), name, number });
+    dispatch(action);
   };
   return (
     <Formik

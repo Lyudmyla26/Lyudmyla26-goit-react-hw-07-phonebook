@@ -4,13 +4,15 @@ export const selectContacts = store => store.contacts;
 export const selectFilter = store => store.filter;
 export const selectLoading = state => state.contacts.isLoading;
 export const selectError = state => state.contacts.error;
+
 export const getFilteredContacts = store => {
   const { filter, contacts } = store;
+
   if (!filter) {
     return contacts;
   }
   const normalizedFilter = filter.toLowerCase();
-  const filteredContacts = contacts.filter(
+  const filteredContacts = contacts.items.filter(
     ({ name, number }) =>
       name.toLowerCase().trim().includes(normalizedFilter) ||
       number.trim().includes(normalizedFilter)
@@ -29,5 +31,6 @@ export const getFilteredContacts = store => {
       toastId: 'custom-id-yes',
     });
   }
+
   return filteredContacts;
 };
