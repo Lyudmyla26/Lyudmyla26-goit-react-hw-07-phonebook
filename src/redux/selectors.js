@@ -1,7 +1,9 @@
 import { toast } from 'react-toastify';
 
-export const getContacts = store => store.contacts;
-export const getFilter = store => store.filter;
+export const selectContacts = store => store.contacts;
+export const selectFilter = store => store.filter;
+export const selectLoading = state => state.contacts.isLoading;
+export const selectError = state => state.contacts.error;
 export const getFilteredContacts = store => {
   const { filter, contacts } = store;
   if (!filter) {

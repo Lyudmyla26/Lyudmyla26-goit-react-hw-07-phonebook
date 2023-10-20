@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { Formik } from 'formik';
+import { nanoid } from '@reduxjs/toolkit';
 import * as yup from 'yup';
 import 'yup-phone';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { addContact } from 'redux/contactSlice';
-import { getContacts } from 'redux/selectors';
+import { addContact } from 'redux/operations';
+import { selectContacts } from 'redux/selectors';
 
 import { BsFillTelephoneFill, BsPersonFill } from 'react-icons/bs';
 import { IoMdPersonAdd } from 'react-icons/io';
@@ -41,7 +42,7 @@ const schema = yup.object().shape({
 const initialValues = { name: '', number: '' };
 
 export const ContactForm = () => {
-  const contacts = useSelector(getContacts);
+  const contacts = useSelector(selectContacts);
   const dispatch = useDispatch();
 
   const isDublicate = ({ name, number }) => {
@@ -70,7 +71,7 @@ export const ContactForm = () => {
         toastId: 'custom-id-yes',
       });
     }
-    dispatch(addContact({ name, number }));
+    dispatch(addContact({ id: nanoid(), name, number }));
     // const action = addContact({ name, number });
     // dispatch(action);
   };

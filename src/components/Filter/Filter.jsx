@@ -1,12 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { setFilter } from 'redux/filterSlice';
-import { getFilter } from 'redux/selectors';
+import { selectFilter } from 'redux/selectors';
 
 import { BsSearch } from 'react-icons/bs';
 import { LabelWrapper, Input, LabelDescr, LabelSpan } from './Filter.styled';
 
 export const Filter = () => {
-  const filter = useSelector(getFilter);
+  const filter = useSelector(selectFilter);
   const dispatch = useDispatch();
 
   const changeFilter = e => {

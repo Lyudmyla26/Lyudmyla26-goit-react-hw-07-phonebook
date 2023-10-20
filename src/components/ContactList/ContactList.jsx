@@ -4,7 +4,7 @@ import { IoPersonRemove } from 'react-icons/io5';
 import { Btn, Item, List } from './ContactList.styled';
 
 // redux
-import { deleteContact } from 'redux/contactSlice';
+import { deleteContacts } from 'redux/operations';
 import { getFilteredContacts } from 'redux/selectors';
 
 export const ContactList = () => {
@@ -13,7 +13,7 @@ export const ContactList = () => {
   const dispatch = useDispatch();
 
   const onDeleteContact = contactId => {
-    dispatch(deleteContact(contactId));
+    dispatch(deleteContacts(contactId));
   };
 
   return (
