@@ -22,7 +22,7 @@ export const ContactList = () => {
 
   return (
     <List>
-      {contacts.items.map(({ name, number, id }) => {
+      {contacts.map(({ name, number, id }) => {
         return (
           <Item key={id}>
             <span>{name}:</span>
